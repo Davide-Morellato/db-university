@@ -29,4 +29,9 @@ SELECT * FROM `exams` WHERE `date`LIKE '2020-06-20' AND `hour` > '14%';
 SELECT * FROM `degrees` WHERE `level` = 'magistrale';
 
 ## Da quanti dipartimenti è composta l'università? (12)
+
+SELECT COUNT(*) AS `total_departments` FROM `departments`;
+
 ## Quanti sono gli insegnanti che non hanno un numero di telefono? (50)
+
+SELECT COUNT(*) AS `teacher_without_number` FROM `teachers` WHERE `phone` IS NULL;
