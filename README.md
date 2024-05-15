@@ -14,8 +14,8 @@ SELECT * FROM `courses` WHERE `cfu` > '10';
 
 <!-- NEL WHERE
 TIMESTAMPDIFF(unità, datetime_expr1, datetime_expr2) + CURDATE() per datetime_expr2 -->
-SELECT * FROM `students` WHERE TIMESTAMPDIFF(YEAR, `date_of_birth`, CURDATE()) > '30';
-
+SELECT * FROM `students` WHERE TIMESTAMPDIFF(YEAR, `date_of_birth`, CURDATE()) > '30'; 
+ 
 ## Selezionare tutti i corsi del primo semestre del primo anno di un qualsiasi corso di laurea (286)
 
 SELECT * FROM `courses` WHERE `period` LIKE 'I semestre' AND `year` = '1';
@@ -25,5 +25,8 @@ SELECT * FROM `courses` WHERE `period` LIKE 'I semestre' AND `year` = '1';
 SELECT * FROM `exams` WHERE `date`LIKE '2020-06-20' AND `hour` > '14%';
 
 ## Selezionare tutti i corsi di laurea magistrale (38)
+
+SELECT * FROM `degrees` WHERE `level` = 'magistrale';
+
 ## Da quanti dipartimenti è composta l'università? (12)
 ## Quanti sono gli insegnanti che non hanno un numero di telefono? (50)
