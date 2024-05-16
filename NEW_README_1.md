@@ -8,7 +8,7 @@ SELECT CONCAT(`students`.`name`,' ', `students`.`surname`) AS `total_students`, 
 
 ## Selezionare tutti i Corsi di Laurea Magistrale del Dipartimento di Neuroscienze
 
-SELECT FROM `degrees` INNER JOIN `departments` ON `degrees`.`department_id` = `departments`.`id` WHERE `degrees`.`level` = 'magistrale' AND `departments`.`name` LIKE '%__Neuroscienze';
+SELECT * FROM `degrees` INNER JOIN `departments` ON `degrees`.`department_id` = `departments`.`id` WHERE `degrees`.`level` = 'magistrale' AND `departments`.`name` LIKE '%__Neuroscienze';
 
 ## Selezionare tutti i corsi in cui insegna Fulvio Amato (id=44)
 
@@ -28,6 +28,6 @@ SELECT * FROM `degrees` INNER JOIN `courses` ON `degrees`.`id`=`courses`.`degree
 
 ## Selezionare tutti i docenti che insegnano nel Dipartimento di Matematica (54)
 
-
+SELECT DISTINCT(CONCAT(`teachers`.`name`,' ',`teachers`.`surname`)) AS `full_name_teachers`, `departments`.`name` FROM `departments` INNER JOIN `degrees` ON`departments`.`id`=`degrees`.`department_id` INNER JOIN `courses` ON `degrees`.`id`=`courses`.`degree_id` INNER JOIN `course_teacher` ON `courses`.`id`=`course_teacher`.`course_id` INNER JOIN `teachers` ON `course_teacher`.`teacher_id`=`teachers`.`id` WHERE `departments`.`name` = 'Dipartimento di Matematica';
 
 ## BONUS: Selezionare per ogni studente il numero di tentativi sostenuti per ogni esame, stampando anche il voto massimo. Successivamente, filtrare i tentativi con voto minimo 18
