@@ -4,11 +4,11 @@ SELECT CONCAT(`students`.`name`,' ', `students`.`surname`) AS `total_students`, 
 
 <!-- OPPURE -->
 
-SELECT * FROM `students` INNER JOIN `degrees` ON `students`.`degree_id`=`degrees`.`id` WHERE `degrees`.`name`LIKE '%__Laurea in Economia';
+SELECT CONCAT(`students`.`name`,' ', `students`.`surname`) AS `total_students`, `degrees`.`name` FROM `students` INNER JOIN `degrees` ON `students`.`degree_id`=`degrees`.`id` WHERE `degrees`.`name`LIKE '%__Laurea in Economia';
 
 ## Selezionare tutti i Corsi di Laurea Magistrale del Dipartimento di Neuroscienze
 
-SELECT CONCAT(`students`.`name`,' ', `students`.`surname`) AS `total_students`, `degrees`.`name` FROM `degrees` INNER JOIN `departments` ON `degrees`.`department_id` = `departments`.`id` WHERE `degrees`.`level` = 'magistrale' AND `departments`.`name` LIKE '%__Neuroscienze';
+SELECT FROM `degrees` INNER JOIN `departments` ON `degrees`.`department_id` = `departments`.`id` WHERE `degrees`.`level` = 'magistrale' AND `departments`.`name` LIKE '%__Neuroscienze';
 
 ## Selezionare tutti i corsi in cui insegna Fulvio Amato (id=44)
 
